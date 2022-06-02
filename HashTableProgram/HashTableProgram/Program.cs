@@ -9,7 +9,7 @@ namespace DataStructureUsingHashTables
         {
             MapNode<string, int> myMapNode = new MapNode<string, int>(5);
             string sentence = "To be or not to be";
-            string[] words = sentence.Split(" ");
+            string[] words = sentence.ToLower().Split(" ");
             foreach (string word in words)
             {
                 int value = myMapNode.Get(word);
@@ -21,10 +21,9 @@ namespace DataStructureUsingHashTables
             }
             int frequency = myMapNode.Get("be");
             Console.WriteLine("Frequency of word in sentence = " + frequency);
-
             sentence = "Paranoids are not paranoid because they are paranoid but because" +
             " they keep putting themselves deliberately into paranoid avoidable situations";
-            words = sentence.Split(" ");
+            words = sentence.ToLower().Split(" ");
             foreach (string word in words)
             {
                 int value = myMapNode.Get(word);
@@ -36,7 +35,6 @@ namespace DataStructureUsingHashTables
             }
             frequency = myMapNode.Get("paranoid");
             Console.WriteLine("Frequency of word in paragraph = " + frequency);
-            myMapNode.Remove("avoidable");
         }
     }
 }

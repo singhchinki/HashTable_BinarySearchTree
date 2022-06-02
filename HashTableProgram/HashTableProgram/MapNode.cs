@@ -52,6 +52,20 @@ namespace HashTableProgram
             public k Key { get; set; }
             public v Value { get; set; }
         }
+        public int getFrequencyOfWords(k key)
+        {
+            int poistion = GetArrayPosition(key);
+            LinkedList<KeyValue<k, v>> linkedList = GetLinkedList(poistion);
+            foreach (KeyValue<k, v> items in linkedList)
+            {
+                if (items.Key.Equals(key))
+                {
+                    string s = items.Value.ToString();
+                    return s.Split(" ").Length;
+                }
+            }
+            return 0;
+        }
         public void Add(k key, v value)
         {
             int poistion = GetArrayPosition(key);
@@ -59,27 +73,7 @@ namespace HashTableProgram
             KeyValue<k, v> item = new KeyValue<k, v>() { Key = key, Value = value, };
             linkedList.AddFirst(item);
         }
-        public void Remove(k key)
-        {
-            int poistion = GetArrayPosition(key);
-            LinkedList<KeyValue<k, v>> linkedList = GetLinkedList(poistion);
-            bool itemFound = false;
-            KeyValue<k, v> foundItem = default(KeyValue<k, v>);
-            foreach (KeyValue<k, v> item in linkedList)
-            {
-                if (item.Key.Equals(key))
-                {
-                    itemFound = true;
-                    foundItem = item;
-                }
-            }
-            if (itemFound)
-            {
-                Console.WriteLine(key + " removed ");
-                linkedList.Remove(foundItem);
-            }
-
-        }
+        
 
     }
 }
