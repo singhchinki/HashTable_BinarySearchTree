@@ -35,6 +35,7 @@ namespace DataStructureUsingHashTables
             }
             frequency = myMapNode.Get("paranoid");
             Console.WriteLine("Frequency of word in paragraph = " + frequency);
+            myMapNode.Remove("avoidable");
         }
     }
 }
